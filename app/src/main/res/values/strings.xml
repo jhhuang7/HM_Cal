@@ -2,21 +2,25 @@
     <string name="app_name">HM Cal</string>
     <string name="action_settings">Settings</string>
     <!--Funcion buttons-->
-    <string name="texticon_divide">÷</string>
-    <string name="texticon_multiply">×</string>
-    <string name="texticon_subtract">-</string>
-    <string name="texticon_plus">+</string>
-    <string name="texticon_calculate">=</string>
+    <string name="btn_divide">÷</string>
+    <string name="btn_multiply">×</string>
+    <string name="btn_subtract">-</string>
+    <string name="btn_plus">+</string>
+    <string name="btn_calculate">=</string>
+    <string name="btn_clear">AC</string>
+    <string name="btn_backspace">⌫</string>
     <!--number pad-->
-    <string name="num_1">1</string>
-    <string name="num_2">2</string>
-    <string name="num_3">3</string>
-    <string name="num_4">4</string>
-    <string name="num_5">5</string>
-    <string name="num_6">6</string>
-    <string name="num_7">7</string>
-    <string name="num_8">8</string>
-    <string name="num_9">9</string>
-    <string name="num_0">0</string>
-    <string name="num_decimal">.</string>
+    <string name="btn_num_1">1</string>
+    <string name="btn_num_2">2</string>
+    <string name="btn_num_3">3</string>
+    <string name="btn_num_4">4</string>
+    <string name="btn_num_5">5</string>
+    <string name="btn_num_6">6</string>
+    <string name="btn_num_7">7</string>
+    <string name="btn_num_8">8</string>
+    <string name="btn_num_9">9</string>
+    <string name="btn_num_0">0</string>
+    <string name="btn_num_decimal">.</string>
+    <string name="btn_arrow_left">◄</string>
+    <string name="btn_arrow_right">►</string>
 </resources>

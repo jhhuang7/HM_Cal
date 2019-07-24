@@ -6,4 +6,5 @@
     <color name="white">#FFFFFF</color>
     <color name="grey_title">#808080</color>
     <color name="disabled">#aaaaaa</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
