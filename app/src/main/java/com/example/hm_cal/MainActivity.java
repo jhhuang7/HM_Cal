@@ -62,10 +62,10 @@ public class MainActivity extends AppCompatActivity {
         EditText num1 = (EditText) findViewById(R.id.editText1);
         EditText num2 = (EditText) findViewById(R.id.editText2);
 
-        if (num1.getText().toString().equals("") || num1.getText().toString().contains(".")) {
+        if (num1.getText().toString().equals("") || num1.getText().toString().equals(".")) {
             num1.setText("0");
         }
-        if (num2.getText().toString().equals("") || num2.getText().toString().contains(".")) {
+        if (num2.getText().toString().equals("") || num2.getText().toString().equals(".")) {
             num2.setText("0");
         }
 

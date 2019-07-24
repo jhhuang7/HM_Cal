@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HM_Cal</string>
+    <string name="app_name">HM Cal</string>
     <string name="action_settings">Settings</string>
     <!--Funcion buttons-->
     <string name="texticon_divide">÷</string>
