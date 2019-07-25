@@ -6,28 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="377dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="end"
-        android:text="0"
-        android:textColor="#000000"
-        android:textSize="64sp"
-        app:fontFamily="@font/manrope_regular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121" />
-
     <EditText
         android:id="@+id/editText2"
         android:layout_width="98dp"
@@ -127,30 +105,28 @@
             android:layout_weight="1">
 
             <Button
-                android:id="@+id/btn_3"
+                android:id="@+id/btn_7"
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#CFD8DC"
-                android:text="@string/btn_num_3" />
+                android:text="@string/btn_num_7" />
 
             <Button
-                android:id="@+id/btn_2"
+                android:id="@+id/btn_8"
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#CFD8DC"
-                android:text="@string/btn_num_2" />
+                android:text="@string/btn_num_8" />
 
             <Button
-                android:id="@+id/btn_1"
+                android:id="@+id/btn_9"
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#CFD8DC"
-                android:includeFontPadding="false"
-                android:onClick="oneButton"
-                android:text="@string/btn_num_1" />
+                android:text="@string/btn_num_9" />
         </TableRow>
 
         <TableRow
@@ -167,20 +143,20 @@
                 android:text="@string/btn_num_4" />
 
             <Button
-                android:id="@+id/btn_6"
-                android:layout_width="88dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#CFD8DC"
-                android:text="@string/btn_num_6" />
-
-            <Button
                 android:id="@+id/btn_5"
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#CFD8DC"
                 android:text="@string/btn_num_5" />
+
+            <Button
+                android:id="@+id/btn_6"
+                android:layout_width="88dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#CFD8DC"
+                android:text="@string/btn_num_6" />
         </TableRow>
 
         <TableRow
@@ -189,28 +165,32 @@
             android:layout_weight="1">
 
             <Button
-                android:id="@+id/btn_9"
+                android:id="@+id/btn_1"
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#CFD8DC"
-                android:text="@string/btn_num_9" />
+                android:includeFontPadding="false"
+                android:onClick="oneButton"
+                android:text="@string/btn_num_1" />
 
             <Button
-                android:id="@+id/btn_8"
+                android:id="@+id/btn_2"
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#CFD8DC"
-                android:text="@string/btn_num_8" />
+                android:onClick="btnPress"
+                android:text="@string/btn_num_2" />
 
             <Button
-                android:id="@+id/btn_7"
+                android:id="@+id/btn_3"
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#CFD8DC"
-                android:text="@string/btn_num_7" />
+                android:text="@string/btn_num_3" />
+
         </TableRow>
 
         <TableRow
@@ -227,20 +207,20 @@
                 android:text="@string/btn_arrow_left" />
 
             <Button
-                android:id="@+id/btn_decimal"
-                android:layout_width="78dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#CFD8DC"
-                android:text="@string/btn_num_decimal" />
-
-            <Button
                 android:id="@+id/btn_0"
                 android:layout_width="77dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#CFD8DC"
                 android:text="@string/btn_num_0" />
+
+            <Button
+                android:id="@+id/btn_decimal"
+                android:layout_width="78dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#CFD8DC"
+                android:text="@string/btn_num_decimal" />
 
             <Button
                 android:id="@+id/button3"
@@ -302,5 +282,31 @@
             android:text="@string/btn_plus" />
 
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:cursorVisible="true"
+        android:ems="10"
+        android:gravity="right|center_vertical"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:text="0"
+        android:textAllCaps="false"
+        android:textSize="48sp"
+        android:typeface="normal"
+        app:fontFamily="@font/manrope_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.143" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

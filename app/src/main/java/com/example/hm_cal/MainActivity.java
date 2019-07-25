@@ -90,17 +90,26 @@ public class MainActivity extends AppCompatActivity {
         return x / y;
     }
 
+    //Adds a 1 to the equation textbox
     public void oneButton(View view) {
         TextView answer = (TextView) findViewById(R.id.textView);
         equation.append("1");
         answer.setText(equation.toString());
     }
-
+    //Adds a + to the equation textbox
     public void addButton(View view) {
         TextView answer = (TextView) findViewById(R.id.textView);
         equation.append("+");
         answer.setText(equation.toString());
     }
+    //Test button function (plz don't kill me)
+    public void btnPress(View view){
+//        displayEquation();
+    }
+
+//    public void displayEquation (View view){
+//        TextView answer = (TextView) findViewById(R.id.textView);
+//    }
 
     public void calculate(View view) {
         TextView answer = (TextView) findViewById(R.id.textView);
