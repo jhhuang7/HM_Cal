@@ -149,6 +149,7 @@
                 android:layout_weight="1"
                 android:background="#CFD8DC"
                 android:includeFontPadding="false"
+                android:onClick="oneButton"
                 android:text="@string/btn_num_1" />
         </TableRow>
 
@@ -297,6 +298,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#607D8B"
+            android:onClick="addButton"
             android:text="@string/btn_plus" />
 
     </LinearLayout>

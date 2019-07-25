@@ -11,7 +11,12 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
+
 public class MainActivity extends AppCompatActivity {
+
+    // The equation being built by pressing keys
+    private StringBuilder equation = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +62,46 @@ public class MainActivity extends AppCompatActivity {
         return x + y;
     }
 
+    public int add(int x, int y) {
+        return x + y;
+    }
+
+    public float subtract(float x, float y) {
+        return x - y;
+    }
+
+    public int subtract(int x, int y) {
+        return x - y;
+    }
+
+    public float multiply(float x, float y) {
+        return x * y;
+    }
+
+    public int multiply(int x, int y) {
+        return x * y;
+    }
+
+    public float divide(float x, float y) {
+        return x / y;
+    }
+
+    public int divide(int x, int y) {
+        return x / y;
+    }
+
+    public void oneButton(View view) {
+        TextView answer = (TextView) findViewById(R.id.textView);
+        equation.append("1");
+        answer.setText(equation.toString());
+    }
+
+    public void addButton(View view) {
+        TextView answer = (TextView) findViewById(R.id.textView);
+        equation.append("+");
+        answer.setText(equation.toString());
+    }
+
     public void calculate(View view) {
         TextView answer = (TextView) findViewById(R.id.textView);
         EditText num1 = (EditText) findViewById(R.id.editText1);
@@ -72,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
         float result = add(Float.parseFloat(num1.getText().toString()),
                 Float.parseFloat(num2.getText().toString()));
 
-        answer.setText("" + result);
-
+//        answer.setText("" + result);
+        
+        answer.setText(equation.toString());
     }
-
 }
