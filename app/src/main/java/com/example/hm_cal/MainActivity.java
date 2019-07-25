@@ -11,8 +11,6 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
-
 public class MainActivity extends AppCompatActivity {
 
     // The equation being built by pressing keys
@@ -90,26 +88,76 @@ public class MainActivity extends AppCompatActivity {
         return x / y;
     }
 
-    //Adds a 1 to the equation textbox
-    public void oneButton(View view) {
-        TextView answer = (TextView) findViewById(R.id.textView);
-        equation.append("1");
-        answer.setText(equation.toString());
-    }
-    //Adds a + to the equation textbox
-    public void addButton(View view) {
-        TextView answer = (TextView) findViewById(R.id.textView);
-        equation.append("+");
-        answer.setText(equation.toString());
-    }
-    //Test button function (plz don't kill me)
+    /**
+     * Adds button text to equation textbox
+     * @param view
+     */
     public void btnPress(View view){
-//        displayEquation();
+        switch (view.getId()) {
+            case R.id.btn_0:
+                equation.append("0");
+                break;
+            case R.id.btn_1:
+                equation.append("1");
+                break;
+            case R.id.btn_2:
+                equation.append("2");
+                break;
+            case R.id.btn_3:
+                equation.append("3");
+                break;
+            case R.id.btn_4:
+                equation.append("4");
+                break;
+            case R.id.btn_5:
+                equation.append("5");
+                break;
+            case R.id.btn_6:
+                equation.append("6");
+                break;
+            case R.id.btn_7:
+                equation.append("7");
+                break;
+            case R.id.btn_8:
+                equation.append("8");
+                break;
+            case R.id.btn_9:
+                equation.append("9");
+                break;
+            case R.id.btn_decimal:
+                equation.append(".");
+                break;
+            case R.id.btn_plus:
+                equation.append("+");
+                break;
+            case R.id.btn_subtract:
+                equation.append("-");
+                break;
+            case R.id.btn_multiply:
+                equation.append("*");
+                break;
+            case R.id.btn_divide:
+                equation.append("/");
+                break;
+        }
+
+        TextView answer = (TextView) findViewById(R.id.textView);
+        answer.setText(equation.toString());
     }
 
-//    public void displayEquation (View view){
-//        TextView answer = (TextView) findViewById(R.id.textView);
-//    }
+    public void allClear(View view) {
+        equation.setLength(0);
+        TextView answer = (TextView) findViewById(R.id.textView);
+        answer.setText(equation.toString());
+    }
+
+    public void backSpace(View view) {
+        if (equation.length() > 0) {
+            equation.deleteCharAt(equation.length() - 1);
+            TextView answer = (TextView) findViewById(R.id.textView);
+            answer.setText(equation.toString());
+        }
+    }
 
     public void calculate(View view) {
         TextView answer = (TextView) findViewById(R.id.textView);
@@ -128,6 +176,6 @@ public class MainActivity extends AppCompatActivity {
 
 //        answer.setText("" + result);
         
-        answer.setText(equation.toString());
+        answer.setText("Yeah but nah!");
     }
 }
