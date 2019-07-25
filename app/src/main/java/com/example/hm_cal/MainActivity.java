@@ -134,10 +134,10 @@ public class MainActivity extends AppCompatActivity {
                 equation.append("-");
                 break;
             case R.id.btn_multiply:
-                equation.append("*");
+                equation.append("×");
                 break;
             case R.id.btn_divide:
-                equation.append("/");
+                equation.append("÷");
                 break;
         }
 
