@@ -93,6 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="allClear"
                 android:text="@string/btn_clear" />
 
             <Button
@@ -100,6 +101,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="backSpace"
                 android:text="@string/btn_backspace" />
 
             <Button
@@ -107,6 +109,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_divide" />
 
         </TableRow>
@@ -121,6 +124,7 @@
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_3" />
 
             <Button
@@ -128,6 +132,7 @@
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_2" />
 
             <Button
@@ -136,6 +141,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:includeFontPadding="false"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_1" />
         </TableRow>
 
@@ -149,6 +155,7 @@
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_4" />
 
             <Button
@@ -156,6 +163,7 @@
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_6" />
 
             <Button
@@ -163,6 +171,7 @@
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_5" />
         </TableRow>
 
@@ -176,6 +185,7 @@
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_9" />
 
             <Button
@@ -183,6 +193,7 @@
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_8" />
 
             <Button
@@ -190,6 +201,7 @@
                 android:layout_width="88dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_7" />
         </TableRow>
 
@@ -203,6 +215,7 @@
                 android:layout_width="78dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_decimal" />
 
             <Button
@@ -217,6 +230,7 @@
                 android:layout_width="77dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="btnPress"
                 android:text="@string/btn_num_0" />
 
             <Button

@@ -161,21 +161,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void calculate(View view) {
         TextView answer = (TextView) findViewById(R.id.textView);
-        EditText num1 = (EditText) findViewById(R.id.editText1);
-        EditText num2 = (EditText) findViewById(R.id.editText2);
-
-        if (num1.getText().toString().equals("") || num1.getText().toString().equals(".")) {
-            num1.setText("0");
-        }
-        if (num2.getText().toString().equals("") || num2.getText().toString().equals(".")) {
-            num2.setText("0");
-        }
-
-        float result = add(Float.parseFloat(num1.getText().toString()),
-                Float.parseFloat(num2.getText().toString()));
-
-//        answer.setText("" + result);
-        
         answer.setText("Yeah but nah!");
     }
 }
