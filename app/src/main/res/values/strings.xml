@@ -21,6 +21,4 @@
     <string name="btn_num_9">9</string>
     <string name="btn_num_0">0</string>
     <string name="btn_num_decimal">.</string>
-    <string name="btn_arrow_left">◄</string>
-    <string name="btn_arrow_right">►</string>
 </resources>

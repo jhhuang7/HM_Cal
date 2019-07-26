@@ -13,6 +13,10 @@ import android.widget.TextView;
 
 import java.util.Stack;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 public class MainActivity extends AppCompatActivity {
 
     // The equation being built by pressing keys
@@ -90,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
         return x / y;
     }
 
+
+
+
+
     /**
      * Adds button text to equation textbox
      * @param view
@@ -97,49 +105,49 @@ public class MainActivity extends AppCompatActivity {
     public void btnPress(View view){
         switch (view.getId()) {
             case R.id.btn_0:
-                equation.append("0 ");
+                equation.append("0");
                 break;
             case R.id.btn_1:
-                equation.append("1 ");
+                equation.append("1");
                 break;
             case R.id.btn_2:
-                equation.append("2 ");
+                equation.append("2");
                 break;
             case R.id.btn_3:
-                equation.append("3 ");
+                equation.append("3");
                 break;
             case R.id.btn_4:
-                equation.append("4 ");
+                equation.append("4");
                 break;
             case R.id.btn_5:
-                equation.append("5 ");
+                equation.append("5");
                 break;
             case R.id.btn_6:
-                equation.append("6 ");
+                equation.append("6");
                 break;
             case R.id.btn_7:
-                equation.append("7 ");
+                equation.append("7");
                 break;
             case R.id.btn_8:
-                equation.append("8 ");
+                equation.append("8");
                 break;
             case R.id.btn_9:
-                equation.append("9 ");
+                equation.append("9");
                 break;
             case R.id.btn_decimal:
-                equation.append(". ");
+                equation.append(".");
                 break;
             case R.id.btn_plus:
-                equation.append("+ ");
+                equation.append("+");
                 break;
             case R.id.btn_subtract:
-                equation.append("- ");
+                equation.append("-");
                 break;
             case R.id.btn_multiply:
-                equation.append("× ");
+                equation.append("*");
                 break;
             case R.id.btn_divide:
-                equation.append("÷ ");
+                equation.append("/");
                 break;
         }
 
@@ -162,9 +170,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculate(View view) {
+
+        ScriptEngine engine1 = new ScriptEngineManager().getEngineByName("rhino");
+
+
         TextView answer = (TextView) findViewById(R.id.textView);
-        System.out.println(equation.toString());
-        answer.setText("I've done goofed");
+
+
+        try {
+            answer.setText(engine1.eval(equation.toString()).toString());
+        } catch (ScriptException e) {
+            answer.setText("Shit happens");
+        }
 
 
     }
@@ -266,10 +283,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void main(String[] args) {
-        System.out.println(evaluate("10 + 2 × 6"));
-        System.out.println(evaluate("100 × 2 + 12"));
-        System.out.println(evaluate("100 × ( 2 + 12 )"));
-        System.out.println(evaluate("100 × ( 2 + 12 ) ÷ 14"));
+
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
+        try {
+            System.out.println(engine.eval("10+2*6"));
+            System.out.println(engine.eval("100*2+12"));
+            System.out.println(engine.eval("100*(2+12 )"));
+            System.out.println(engine.eval("100*(2+12)/14"));
+        } catch (ScriptException e) {
+            System.out.println("Cunts fuck you!");
+        }
     }
 }
 
