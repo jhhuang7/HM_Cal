@@ -1,65 +1,24 @@
 package com.example.hm_cal;
 
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.Stack;
-
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
+import javax.script.*;
 
 public class MainActivity extends AppCompatActivity {
 
     // The equation being built by pressing keys
-    private StringBuilder equation = new StringBuilder();
+    public StringBuilder equation = new StringBuilder();
 
     @Override
+    /**
+     * Starts the app and determines which screen the app starts on.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//       FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public float add(float x, float y) {
@@ -94,13 +53,9 @@ public class MainActivity extends AppCompatActivity {
         return x / y;
     }
 
-
-
-
-
     /**
-     * Adds button text to equation textbox
-     * @param view
+     * Adds button text to equation text box
+     * @param view page being handled
      */
     public void btnPress(View view){
         switch (view.getId()) {
@@ -144,154 +99,71 @@ public class MainActivity extends AppCompatActivity {
                 equation.append("-");
                 break;
             case R.id.btn_multiply:
-                equation.append("*");
+                equation.append("×");
                 break;
             case R.id.btn_divide:
-                equation.append("/");
+                equation.append("÷");
                 break;
         }
 
-        TextView answer = (TextView) findViewById(R.id.textView);
+        TextView answer = findViewById(R.id.textView);
         answer.setText(equation.toString());
     }
 
+    /**
+     * Clears the display box
+     * @param view page being handled
+     */
     public void allClear(View view) {
         equation.setLength(0);
-        TextView answer = (TextView) findViewById(R.id.textView);
+        TextView answer = findViewById(R.id.textView);
         answer.setText(equation.toString());
     }
 
+    /**
+     * Deletes last character in the display box
+     * @param view page being handled
+     */
     public void backSpace(View view) {
         if (equation.length() > 0) {
             equation.deleteCharAt(equation.length() - 1);
-            TextView answer = (TextView) findViewById(R.id.textView);
+            TextView answer = findViewById(R.id.textView);
             answer.setText(equation.toString());
         }
     }
 
+    /**
+     * Attempts to calcuate the String expression in equation and display it
+     * @param view page being handled
+     */
     public void calculate(View view) {
+        TextView answer = findViewById(R.id.textView);
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
 
-        ScriptEngine engine1 = new ScriptEngineManager().getEngineByName("rhino");
+        if (equation.toString().equals("")) {
+            return;
+        }
 
-
-        TextView answer = (TextView) findViewById(R.id.textView);
-
+        String result = equation.toString().replace("×", "*")
+                .replace("÷", "/");
 
         try {
-            answer.setText(engine1.eval(equation.toString()).toString());
+            answer.setText(engine.eval(result).toString());
         } catch (ScriptException e) {
-            answer.setText("Shit happens");
+            answer.setText("Error");
         }
-
-
-    }
-
-    // Shit happens
-    public static int evaluate(String expression)
-    {
-        char[] tokens = expression.toCharArray();
-
-        // Stack for numbers: 'values'
-        Stack<Integer> values = new Stack<Integer>();
-
-        // Stack for Operators: 'ops'
-        Stack<Character> ops = new Stack<Character>();
-
-        for (int i = 0; i < tokens.length; i++)
-        {
-            // Current token is a whitespace, skip it
-            if (tokens[i] == ' ')
-                continue;
-
-            // Current token is a number, push it to stack for numbers
-            if (tokens[i] >= '0' && tokens[i] <= '9')
-            {
-                StringBuffer sbuf = new StringBuffer();
-                // There may be more than one digits in number
-                while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9')
-                    sbuf.append(tokens[i++]);
-                values.push(Integer.parseInt(sbuf.toString()));
-            }
-
-            // Current token is an opening brace, push it to 'ops'
-            else if (tokens[i] == '(')
-                ops.push(tokens[i]);
-
-                // Closing brace encountered, solve entire brace
-            else if (tokens[i] == ')')
-            {
-                while (ops.peek() != '(')
-                    values.push(applyOp(ops.pop(), values.pop(), values.pop()));
-                ops.pop();
-            }
-
-            // Current token is an operator.
-            else if (tokens[i] == '+' || tokens[i] == '-' ||
-                    tokens[i] == '×' || tokens[i] == '÷')
-            {
-                // While top of 'ops' has same or greater precedence to current
-                // token, which is an operator. Apply operator on top of 'ops'
-                // to top two elements in values stack
-                while (!ops.empty() && hasPrecedence(tokens[i], ops.peek()))
-                    values.push(applyOp(ops.pop(), values.pop(), values.pop()));
-
-                // Push current token to 'ops'.
-                ops.push(tokens[i]);
-            }
-        }
-
-        // Entire expression has been parsed at this point, apply remaining
-        // ops to remaining values
-        while (!ops.empty())
-            values.push(applyOp(ops.pop(), values.pop(), values.pop()));
-
-        // Top of 'values' contains result, return it
-        return values.pop();
-    }
-
-    // Returns true if 'op2' has higher or same precedence as 'op1',
-    // otherwise returns false.
-    public static boolean hasPrecedence(char op1, char op2)
-    {
-        if (op2 == '(' || op2 == ')')
-            return false;
-        if ((op1 == '×' || op1 == '÷') && (op2 == '+' || op2 == '-'))
-            return false;
-        else
-            return true;
-    }
-
-    // A utility method to apply an operator 'op' on operands 'a'
-    // and 'b'. Return the result.
-    public static int applyOp(char op, int b, int a)
-    {
-        switch (op)
-        {
-            case '+':
-                return a + b;
-            case '-':
-                return a - b;
-            case '×':
-                return a * b;
-            case '÷':
-                if (b == 0)
-                    throw new
-                            UnsupportedOperationException("Cannot divide by zero");
-                return a / b;
-        }
-        return 0;
     }
 
     public static void main(String[] args) {
+        ScriptEngine testEngine = new ScriptEngineManager().getEngineByName("rhino");
 
-        ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
         try {
-            System.out.println(engine.eval("10+2*6"));
-            System.out.println(engine.eval("100*2+12"));
-            System.out.println(engine.eval("100*(2+12 )"));
-            System.out.println(engine.eval("100*(2+12)/14"));
+            System.out.println(testEngine.eval("10+2*6"));
+            System.out.println(testEngine.eval("100*2+12"));
+            System.out.println(testEngine.eval("100*(2+12)"));
+            System.out.println(testEngine.eval("100*(2+12)/14"));
         } catch (ScriptException e) {
-            System.out.println("Cunts fuck you!");
+            System.out.println("Fuck, we've done goofed!");
         }
     }
 }

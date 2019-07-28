@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:text="Basic Calculator"
-        android:textColor="@color/grey_title"
-        android:textSize="30sp"
-        app:fontFamily="@font/manrope_regular"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="303dp"
@@ -253,7 +239,8 @@
         android:background="@color/white"
         android:cursorVisible="true"
         android:ems="10"
-        android:focusable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:gravity="right|center_vertical"
         android:hint="@string/btn_num_0"
         android:inputType="number|text"
@@ -268,5 +255,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.143" />
+
+    <Spinner
+        android:id="@+id/dropDown"
+        android:layout_width="194dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/options"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
