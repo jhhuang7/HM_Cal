@@ -10,7 +10,10 @@ import javax.script.*;
 public class MainActivity extends AppCompatActivity {
 
     // The equation being built by pressing keys
-    public StringBuilder equation = new StringBuilder();
+    StringBuilder equation = new StringBuilder();
+
+    // The boi evaluating the String expressions
+    ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
 
     @Override
     /**
@@ -138,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
      */
     public void calculate(View view) {
         TextView answer = findViewById(R.id.textView);
-        ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
 
         if (equation.toString().equals("")) {
             return;
@@ -148,7 +150,13 @@ public class MainActivity extends AppCompatActivity {
                 .replace("÷", "/");
 
         try {
-            answer.setText(engine.eval(result).toString());
+            String equals = engine.eval(result).toString();
+
+            if (equals.endsWith(".0")) {
+                answer.setText(equals.substring(0, equals.length() - 2));
+            } else {
+                answer.setText(equals);
+            }
         } catch (ScriptException e) {
             answer.setText("Error");
         }
