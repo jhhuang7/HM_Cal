@@ -24,38 +24,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public float add(float x, float y) {
-        return x + y;
-    }
-
-    public int add(int x, int y) {
-        return x + y;
-    }
-
-    public float subtract(float x, float y) {
-        return x - y;
-    }
-
-    public int subtract(int x, int y) {
-        return x - y;
-    }
-
-    public float multiply(float x, float y) {
-        return x * y;
-    }
-
-    public int multiply(int x, int y) {
-        return x * y;
-    }
-
-    public float divide(float x, float y) {
-        return x / y;
-    }
-
-    public int divide(int x, int y) {
-        return x / y;
-    }
-
     /**
      * Adds button text to equation text box
      * @param view page being handled
