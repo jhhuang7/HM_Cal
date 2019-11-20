@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        TextView answer = findViewById(R.id.textView);
+        TextView answer = findViewById(R.id.equation);
         answer.setText(equation.toString());
     }
 
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void allClear(View view) {
         equation.setLength(0);
-        TextView answer = findViewById(R.id.textView);
+        TextView answer = findViewById(R.id.equation);
         answer.setText(equation.toString());
         canType = true;
         isError = false;
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
     public void backSpace(View view) {
         if (equation.length() > 0 && !isError) {
             equation.deleteCharAt(equation.length() - 1);
-            TextView answer = findViewById(R.id.textView);
+            TextView answer = findViewById(R.id.equation);
             answer.setText(equation.toString());
             return;
         }
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view page being handled.
      */
     public void calculate(View view) {
-        TextView answer = findViewById(R.id.textView);
+        TextView answer = findViewById(R.id.equation);
         answer.setText(equation.toString());
 
         if (equation.toString().equals("") || !canType || isError) {
