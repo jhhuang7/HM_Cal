@@ -10,18 +10,31 @@ import javax.script.*;
 public class MainActivity extends AppCompatActivity {
 
     // The equation being built by pressing keys
-    StringBuilder equation = new StringBuilder();
+    public StringBuilder equation = new StringBuilder();
 
     // The boi evaluating the String expressions
-    ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
+    public ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
 
-    @Override
+    // Toggle boolean between can and can't type
+    public boolean canType = true;
+
     /**
      * Starts the app and determines which screen the app starts on.
      */
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    /**
+     * Checks if the equation is within the 10 character limit.
+     * @param equation string builder to be checked.
+     */
+    public void isLength(StringBuilder equation) {
+        if (equation.length() > 10) {
+            canType = false;
+        }
     }
 
     /**
@@ -29,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
      * @param view page being handled
      */
     public void btnPress(View view){
+        this.isLength(equation);
+        if (!canType) {
+            return;
+        }
+
         switch (view.getId()) {
             case R.id.btn_0:
                 equation.append("0");
@@ -89,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         equation.setLength(0);
         TextView answer = findViewById(R.id.textView);
         answer.setText(equation.toString());
+        canType = true;
     }
 
     /**
@@ -96,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view page being handled
      */
     public void backSpace(View view) {
-        if (equation.length() > 0) {
+        if (equation.length() > 0 && canType) {
             equation.deleteCharAt(equation.length() - 1);
             TextView answer = findViewById(R.id.textView);
             answer.setText(equation.toString());
@@ -110,38 +129,37 @@ public class MainActivity extends AppCompatActivity {
     public void calculate(View view) {
         TextView answer = findViewById(R.id.textView);
 
-        if (equation.toString().equals("")) {
+        if (equation.toString().equals("") || !canType) {
             return;
         }
 
         String result = equation.toString().replace("×", "*")
                 .replace("÷", "/");
 
+        this.allClear(view);
+
         try {
             String equals = engine.eval(result).toString();
 
             if (equals.endsWith(".0")) {
-                answer.setText(equals.substring(0, equals.length() - 2));
+                equation.append(equals.substring(0, equals.length() - 2));
+
             } else {
-                answer.setText(equals);
+                if (equals.equals("NaN") || equals.equals("Infinity")) {
+                    equation.append("Undefined");
+                    canType = false;
+                } else {
+                    equation.append(equals);
+                }
             }
-        } catch (ScriptException e) {
-            answer.setText("Error");
-        }
-    }
 
-    public static void main(String[] args) {
-        ScriptEngine testEngine = new ScriptEngineManager().getEngineByName("rhino");
+            answer.setText(equation.toString());
 
-        try {
-            System.out.println(testEngine.eval("10+2*6"));
-            System.out.println(testEngine.eval("100*2+12"));
-            System.out.println(testEngine.eval("100*(2+12)"));
-            System.out.println(testEngine.eval("100*(2+12)/14"));
         } catch (ScriptException e) {
-            System.out.println("Fuck, we've done goofed!");
+            // An Error can't be modified
+            equation.append("Error");
+            answer.setText(equation.toString());
+            canType = false;
         }
     }
 }
-
-
