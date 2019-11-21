@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -16,7 +15,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:gravity="left"
+        android:gravity="start"
+        android:importantForAutofill="no"
         android:hint="@string/btn_num_0"
         android:textColor="#000000"
         android:textColorHint="#000000"
@@ -47,8 +47,8 @@
         android:id="@+id/tableLayout"
         android:layout_width="300dp"
         android:layout_height="400dp"
-        android:layout_marginStart="350dp"
-        android:layout_marginLeft="350dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginLeft="330dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#B0BEC5"
+                android:background="#546E7A"
                 android:onClick="allClear"
                 android:text="@string/btn_clear" />
 
@@ -74,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="backSpace"
                 android:text="@string/btn_backspace" />
 
@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_divide" />
 
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_3" />
 
@@ -108,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_2" />
 
@@ -117,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:includeFontPadding="false"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_1" />
@@ -133,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_4" />
 
@@ -142,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_6" />
 
@@ -151,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_5" />
         </TableRow>
@@ -166,7 +166,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_9" />
 
@@ -175,7 +175,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_8" />
 
@@ -184,7 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_7" />
         </TableRow>
@@ -199,7 +199,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_decimal" />
 
@@ -208,7 +208,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#CFD8DC"
+                android:background="#607D8B"
                 android:onClick="btnPress"
                 android:text="@string/btn_num_0" />
 
@@ -217,7 +217,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="400dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -231,7 +231,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_weight="1"
-            android:background="#607D8B"
+            android:background="#CFD8DC"
             android:onClick="btnPress"
             android:text="@string/btn_multiply" />
 
@@ -240,7 +240,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_weight="1"
-            android:background="#607D8B"
+            android:background="#CFD8DC"
             android:onClick="btnPress"
             android:text="@string/btn_subtract" />
 
@@ -249,7 +249,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_weight="1"
-            android:background="#607D8B"
+            android:background="#CFD8DC"
             android:onClick="btnPress"
             android:text="@string/btn_plus" />
 
@@ -258,7 +258,7 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_weight="1"
-            android:background="#546E7A"
+            android:background="#B0BEC5"
             android:onClick="calculate"
             android:text="@string/btn_calculate" />
 

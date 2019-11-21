@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     // The equation being built by pressing keys.
     public StringBuilder equation = new StringBuilder();
 
-    // The boi evaluating the String expressions.
+    // The engine evaluating the String expressions.
     public ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
 
     // Toggle boolean between can and can't type.
@@ -172,9 +172,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void calculate(View view) {
         TextView answer = findViewById(R.id.equation);
-        answer.setText(equation.toString());
 
-        if (equation.toString().equals("") || !canType || isError) {
+        if (equation.toString().equals("") || isError) {
             showMessage(2);
             return;
         }
