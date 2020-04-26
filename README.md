@@ -1,1 +1,1 @@
-Download app/release/app-release.apk to install app on phone.
+Download and install the [app](https://github.com/jhhuang7/HM_Cal/raw/master/app/release/app-release.apk) on phone.
