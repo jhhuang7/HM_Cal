@@ -1,2 +1,1 @@
-# HM_Cal
-A simple and easy to use material themed calculator for Android.
+Download app/release/app-release.apk to install app on phone.
