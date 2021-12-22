@@ -1,4 +1,4 @@
-package com.example.hm_cal;
+package com.hmc.hm_cal;
 
 import org.junit.Test;
 

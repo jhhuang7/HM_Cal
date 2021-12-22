@@ -1,4 +1,4 @@
-package com.example.hm_cal;
+package com.hmc.hm_cal;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.hm_cal", appContext.getPackageName());
+        assertEquals("com.hmc.hm_cal", appContext.getPackageName());
     }
 }
