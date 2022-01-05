@@ -1,1 +1,1 @@
-Download and install the [app](https://github.com/jhhuang7/HM_Cal/raw/master/app/release/app-release.apk) on phone.
+Download and install the app on the [Google Play Store](https://play.google.com/store/apps/details?id=com.hmc.hm_cal) or the [Samsung Galaxy Store](https://galaxystore.samsung.com/detail/com.hmc.hm_cal).
